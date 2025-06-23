@@ -1,5 +1,16 @@
 const tipoSelecionado = "encanador"; // Pode vir de URL, localStorage, botão, etc.
 
+//preencher o campo de nome 
+function PreenchendoCampoEnvio() {
+  const nome = sessionStorage.getItem("nome");
+  const funcao = sessionStorage.getItem("funcao");
+  if (nome) {
+    const labelNome = document.getElementById("updateNome");
+    if (labelNome) {
+      labelNome.innerHTML = "Profissional: <strong>" + nome +"</strong> ("+funcao+")";
+    }
+  }
+}
 function criarGrupoDePerguntas(titulo, perguntas) {
   const grupoHTML = document.createElement("div");
 
@@ -41,11 +52,12 @@ function aplicarEfeitoFlutuante(container) {
 }
 
 async function carregarFormulario(tipo) {
-  const container = document.getElementById("formulario-container");
-  container.innerHTML = "<p>Carregando formulário...</p>";
+  PreenchendoCampoEnvio();
+  const container = document.getElementById("form-container");
+  //container.innerHTML = "<p>Carregando formulário...</p>";
 
   try {
-    const resposta = await fetch(`formularios/${tipo}.json`);
+    const resposta = await fetch(`questForm/formulario-${tipo}.json`);
     const dados = await resposta.json();
 
     container.innerHTML = "";
@@ -62,10 +74,11 @@ async function carregarFormulario(tipo) {
     container.appendChild(botao);
 
     aplicarEfeitoFlutuante(container);
-
+    
   } catch (erro) {
-    container.innerHTML = `<p>Erro ao carregar o formulário: ${erro}</p>`;
+    //container.innerHTML = `<p>Erro ao carregar o formulário: ${erro}</p>`;
   }
+  
 }
 
 carregarFormulario(tipoSelecionado);

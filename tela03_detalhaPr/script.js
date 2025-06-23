@@ -37,6 +37,19 @@ tabButtons.forEach(btn => {
   });
 });
 
+//enviando dados para o formulário
+export function enviarDados() {//Funções em módulos não são globalmente acessíveis no html.
+  sessionStorage.setItem("nome", Profissional.nome);
+  sessionStorage.setItem("funcao", Profissional.funcao);
+  window.location.href = "../tela03_form/index.html";
+  
+}
+
+
+
 // Aba inicial
 document.querySelector('.tab-button[data-tab="especificacoes"]').classList.add("active");
 atualizarConteudo("especificacoes");
+
+// Adiciona o event listener ao botão
+document.getElementById("contratar-btn").addEventListener("click", enviarDados);
