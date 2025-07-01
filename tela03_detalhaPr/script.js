@@ -1,4 +1,4 @@
-import { Profissional } from '../tela02/script/operario.js';
+import { Profissional } from '../tela02/script/Profissional.js';
 
 const nomeEl = document.getElementById("nome");
 const funcaoEl = document.getElementById("funcao");
@@ -8,11 +8,12 @@ const conteudoDinamico = document.getElementById("conteudo-dinamico");
 const dadosFixos = document.getElementById("dados-fixos");
 const tabButtons = document.querySelectorAll(".tab-button");
 
+const dadosProfissional = JSON.parse(sessionStorage.getItem("dadosProfissional"));
 // Preencher dados fixos
-nomeEl.textContent = Profissional.nome;
-funcaoEl.textContent = Profissional.funcao;
-avaliacaoEl.textContent = Profissional.avaliacao;
-servicosEl.textContent = Profissional.totalServicos;
+nomeEl.textContent = dadosProfissional.nome;
+funcaoEl.textContent = dadosProfissional.funcao;
+avaliacaoEl.textContent = dadosProfissional.avaliacao;
+servicosEl.textContent = dadosProfissional.totalServicos;
 
 // Atualiza conteúdo com base na aba selecionada
 function atualizarConteudo(tipo) {
@@ -39,6 +40,7 @@ tabButtons.forEach(btn => {
 
 //enviando dados para o formulário
 export function enviarDados() {//Funções em módulos não são globalmente acessíveis no html.
+  console.log(sessionStorage.setItem("nome", Profissional.nome))
   sessionStorage.setItem("nome", Profissional.nome);
   sessionStorage.setItem("funcao", Profissional.funcao);
   window.location.href = "../tela03_form/index.html";

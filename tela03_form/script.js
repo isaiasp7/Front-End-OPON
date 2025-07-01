@@ -4,13 +4,37 @@ const tipoSelecionado = "encanador"; // Pode vir de URL, localStorage, botão, e
 function PreenchendoCampoEnvio() {
   const nome = sessionStorage.getItem("nome");
   const funcao = sessionStorage.getItem("funcao");
-  if (nome) {
-    const labelNome = document.getElementById("updateNome");
-    if (labelNome) {
-      labelNome.innerHTML = "Profissional: <strong>" + nome +"</strong> ("+funcao+")";
-    }
+
+
+  if (nome && updateNome) {
+    updateNome.innerHTML = "Profissional: <strong>" + nome + "</strong> (" + funcao + ")";
+
+    // Cria o campo de rádio
+    const radioInput = document.createElement("input");
+    radioInput.type = "radio";
+    radioInput.id = "opcao2";
+    radioInput.name = "selectDest";
+    radioInput.value = "especialized";
+    radioInput.checked = true; // Marca o rádio como selecionado
+
+    // Cria a label para o rádio (opcional, mas recomendado para acessibilidade)
+    const radioLabel = document.createElement("label");
+    radioLabel.setAttribute("for", "opcao2"); // Associa a label ao input
+    radioLabel.textContent = " Selecionado automaticamente"; // Texto da label
+
+    // Adiciona o input e a label ao DOM (onde você deseja que apareçam)
+    const container = document.getElementsByClassName("destinationTo"); // Cria um contêiner para organizar
+    container.appendChild(radioInput);
+    container.appendChild(radioLabel);
+
+    // Adiciona o contêiner ao elemento pai desejado.  Por exemplo, logo após o labelNome:
+    updateNome.parentNode.insertBefore(container, updateNome.nextSibling);
+
   }
 }
+
+
+
 function criarGrupoDePerguntas(titulo, perguntas) {
   const grupoHTML = document.createElement("div");
 

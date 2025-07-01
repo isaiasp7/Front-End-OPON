@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhamento de Perfil</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h2>Detalhamento de Perfil</h2>
+
+    <div class="tabs">
+        <button class="tab-button" data-tab="especificacoes">Especificações</button>
+        <button class="tab-button" data-tab="historico">Histórico</button>
+
+    </div>
+
+    <div class="card">
+        <div class="photo"></div>
+        <h3 id="nome"></h3>
+        <p id="funcao" class="subtitle"></p>
+
+        <div id="dados-fixos">
+            <p><strong>Média de Avaliação:</strong> <span id="avaliacao"></span></p>
+            <p><strong>Serviços Realizados:</strong> <span id="servicos"></span></p>
+        </div>
+
+        <div id="conteudo-dinamico"></div>
+
+
+
+    </div>
+    </div>
+
+    <button class="btn" id="contratar-btn">Contratar Serviços</button>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
