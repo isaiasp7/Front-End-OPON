@@ -3,30 +3,47 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /*brder: 1px solid red*/
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  padding: 10px;
+  background-color: #1b1b1b;
+ 
+}
+.Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0px 30px 0 30px;
+  background-color: rgb(224, 154, 3);
+}
+.Header>.atalhos{
+  display: flex;
+  gap: 50px;
 }
 
 /* MENU TOPO */
-.top-bar {
+.top-bar-navegation {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #ddd;
+  background-color: #ddd transparent 0.5;
   padding: 10px;
-  border-radius: 10px;
+  
   margin-bottom: 10px;
   width: 100%;
-  height: 40px;
+  height: 60px;
+  border-bottom: 1px solid rgb(121, 117, 117);
 }
 
  
 
-     .top-bar button {
+     .top-bar-navegation button {
+       font-size: 15px;
   background-color: transparent;
   text-decoration: none;
   border: none;
@@ -36,38 +53,90 @@ body {
   transition: ease-out 0.3s; /* Necessário para posicionar o ::after */
 }
 button:hover {
- font-size: 17px; /* Muda a cor do texto no hover */
+ font-size: 20px; /* Muda a cor do texto no hover */
 }
 
-.top-bar button::after {
+.top-bar-navegation button::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   width: 0; /* Começa com 0 de largura */
   height: 2px;
-  background-color: black;
+  background-color: rgb(255, 246, 246);
   transition: width 0.34s ease-out; /* Transição suave */
 }
 
-.top-bar button:hover::after {
+.top-bar-navegation button:hover::after {
   width: 100%; /* Expandir para 100% no hover */
   
 }
-.top-bar button.ativo {
+.top-bar-navegation button.ativo {
   font-size: 18px;
   /* Não usa border-bottom, controlamos tudo via ::after */
 }
 
-.top-bar button.ativo::after {
+.top-bar-navegation button.ativo::after {
   width: 100%;
-  background-color: rgb(0, 0, 0); /* Ou outra cor de destaque */
+  background-color: rgb(255, 239, 239); /* Ou outra cor de destaque */
 }
+.divSearch{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+   border-bottom: 1px solid rgb(121, 117, 117);
 
-.hamburger {
-  font-size: 24px;
-  cursor: pointer;
 }
+     .divSearch>#input{
+        display: flex;
+        height: 40px;
+        width: 25%;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        margin: 0 10px 10px ;
+         border-radius: 20px;
+        background-color: rgb(255, 255, 255);
+
+      }
+     
+      input[type="search"]::-webkit-search-{
+        color: rgb(31, 21, 112);
+      }
+
+
+  .divSearch>#input>#search{
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: end;
+      outline: none; /* Remove a borda padrão do navegador ao focar */
+       border: 1px solid transparent ;
+       border-radius: 20px;
+      padding-left: 15px;
+      transition:ease-in-out 1s;
+      color: black
+  }
+     
+      #input>img{
+        height: 30px;
+        width:30px;
+       margin-right: 10px;
+        transform: scale(0.6) rotateY(180deg);
+
+      }
+  #search:focus{
+   border-color: #707070;
+   border-radius: 20px;
+
+  }
+ 
+
+    .hamburger {
+      padding-left: 5px;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
 /* GRID DE PERFIS */
 .profile-grid {
@@ -88,19 +157,20 @@ button:hover {
 }
 
 .profile-card.selected {
-  outline: 3px solid rgb(0, 0, 0);
+  outline: 3px solid lch(30.03% 80.67 310.9);
 }
 
 .avatar {
   background-color: black;
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   margin: 0 auto 10px;
 }
 
 .name {
   font-weight: bold;
+  color: #1b1b1b;
   margin-bottom: 4px;
 }
 
@@ -108,9 +178,6 @@ button:hover {
 .experience {
   font-size: 0.9em;
   color: #444;
-}
-.card {
-  transition: opacity 0.3s ease;
 }
 
 

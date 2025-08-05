@@ -22,22 +22,26 @@ const createCard = (Profissional) => {
     });
     card.addEventListener("click", () => {
         // Aqui você pode adicionar a lógica para redirecionar ou exibir detalhes do profissional
+        
         console.log(`Profissional selecionado: ${Profissional}`);
         sessionStorage.setItem("dadosProfissional", JSON.stringify(Profissional));
         window.location.href = "../tela03_detalhaPr/index.html";
     });
     return card;
 };
-
-function recarregarCards(tipo) {
+//Esse código precisa ser refeitos : sempre que uma letra é digitada na pesquisa é feito uma requisição. O ideal é que haja uma requisição e esses filtros são feitos apenas em uma requisição; Então quando verificar se tem dado novo?
+function recarregarCards(tipo, nome) {
     const api = ApiService.getInstancia();
     api.get(
-        "http://localhost:8080/profissional", // Substitua pelo URL real da API
+        "http://localhost:8080/profissional",
         (profissionais) => {
             try {
-                grid.innerHTML = ""; //limpara para depois atualizar de acordo com o filtro
+                grid.innerHTML = "";
                 profissionais.forEach((p) => {
-                    if (!tipo || p.especializacao === tipo) {
+                    const filtroTipo = !tipo || p.especializacao === tipo;
+                    const filtroNome = !nome || p.nome.toLowerCase().includes(nome.toLowerCase());
+
+                    if (filtroTipo && filtroNome) {
                         grid.appendChild(createCard(p));
                     }
                 });
@@ -51,16 +55,47 @@ function recarregarCards(tipo) {
     );
 }
 
+let botaoAtivo = null;
 function buttonAtivo() {
     const buttons = document.querySelectorAll("button");
+
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            buttons.forEach((btn) => btn.classList.remove("ativo"));
-            button.classList.add("ativo");
-            recarregarCards(button.value);
+            if (botaoAtivo === button) {
+                // Se o mesmo botão for clicado de novo, desmarcar
+                button.classList.remove("ativo");
+                botaoAtivo = null;
+                recarregarCards(null, document.getElementById("search").value);
+            } else {
+                // Marcar novo botão
+                buttons.forEach((btn) => btn.classList.remove("ativo"));
+                button.classList.add("ativo");
+                botaoAtivo = button;
+                recarregarCards(button.value, document.getElementById("search").value);
+            }
         });
     });
 }
+
+function search() {
+    let searchInput = document.getElementById("search");
+    searchInput.addEventListener("keyup", () => {
+        // Sempre usa o botão ativo (se existir) + o valor digitado
+        recarregarCards(botaoAtivo ? botaoAtivo.value : null, searchInput.value);
+    });
+
+    // Exemplo: se quiser fazer algo com keydown também
+    searchInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            recarregarCards(botaoAtivo ? botaoAtivo.value : null, searchInput.value);
+        }
+    });
+}
+
+
+
+
+recarregarCards();//se ninguem selecionado
 
 /*====================================================================================================================
 
@@ -78,7 +113,8 @@ setTimeout(() => {
 //========================================================================
 
 //========================================================================
-document.addEventListener("DOMContentLoaded", buttonAtivo); //Assim o navegador espera o carregamento do DOM antes de
+document.addEventListener("DOMContentLoaded", search());
+document.addEventListener("DOMContentLoaded", buttonAtivo()); //Assim o navegador espera o carregamento do DOM antes de
 
 /*
 USAR QUANDO OS ENDPOINTS FOREM GERADOS

@@ -1,0 +1,170 @@
+:root {
+            --primary-color: #d23f31; /* Vermelho Google */
+            --primary-light: #fce8e6;
+            --text-color: #202124;
+            --border-color: #dadce0;
+            --background-color: #f8f9fa;
+            --required-color: #d23f31;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%; 
+            box-sizing: border-box;
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .form-title {
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .form-description {
+            font-size: 14px;
+            color: #5f6368;
+        }
+        
+        .form-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 12px;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .question {
+            margin-bottom: 24px;
+        }
+        
+        .question-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .required {
+            color: var(--required-color);
+            margin-left: 4px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border: 2px solid var(--primary-color);
+            padding: 9px;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            margin-top: 8px;
+        }
+        
+        .radio-option,
+        .checkbox-option {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            accent-color: var(--primary-color);
+        }
+        
+        .other-input {
+            margin-left: 26px;
+            margin-top: 8px;
+            display: none;
+        }
+        
+        .other-input.show {
+            display: block;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: #b33426;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .error-message {
+            color: var(--required-color);
+            font-size: 12px;
+            margin-top: 4px;
+            display: none;
+        }
+        
+        .error {
+            border-color: var(--required-color);
+        }
+

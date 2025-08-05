@@ -112,7 +112,7 @@ export const ApiService = (function() {
                 // Configura reconexão automática quando fechado
                 socket.onclose = function() {
                     console.log("WebSocket desconectado. Tentando reconectar...");
-                    setTimeout(() => this.connectWebSocket(url), 500);
+                    setTimeout(() => this.connectWebSocket(url), 3000);
                 };
             },
 
