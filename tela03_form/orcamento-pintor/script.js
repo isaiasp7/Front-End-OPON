@@ -1,3 +1,8 @@
+const objJSON = JSON.parse(sessionStorage.getItem("dadosProfissional"));
+function EnvioFormNomeUpdate(params) {//atualiza o campo de envio "SErvidor : {nome}"
+    document.getElementById('nomeServidor').textContent = objJSON.nome;
+
+}
 document.addEventListener('DOMContentLoaded', function () {
     const propertyTypeRadios = document.querySelectorAll('input[name="propertyType"]');
     const externalSection = document.getElementById('externalSection');
@@ -157,3 +162,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+EnvioFormNomeUpdate();
