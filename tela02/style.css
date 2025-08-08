@@ -63,7 +63,7 @@ button:hover {
   bottom: 0;
   width: 0; /* Começa com 0 de largura */
   height: 2px;
-  background-color: rgb(255, 246, 246);
+  background-color: rgb(246, 255, 254);
   transition: width 0.34s ease-out; /* Transição suave */
 }
 
@@ -78,7 +78,7 @@ button:hover {
 
 .top-bar-navegation button.ativo::after {
   width: 100%;
-  background-color: rgb(255, 239, 239); /* Ou outra cor de destaque */
+  background-color: rgb(239, 245, 255); /* Ou outra cor de destaque */
 }
 .divSearch{
   display: flex;
@@ -157,7 +157,7 @@ button:hover {
 }
 
 .profile-card.selected {
-  outline: 3px solid lch(30.03% 80.67 310.9);
+  outline: 3px solid rgb(168, 116, 4);
 }
 
 .avatar {
@@ -183,7 +183,13 @@ button:hover {
 
 
 
-.stars_nice {
+.stars{
+  color: rgba(5, 42, 110, 0.705);
+  font-size:large;
+  margin-top: 5px;
+}
+/*
+.stars_nice{
   color: rgb(0, 0, 0);
   margin-top: 5px;
 }
@@ -191,6 +197,8 @@ button:hover {
   color: rgb(0, 0, 0);
   margin-top: 5px;
 }
+  
+*/
 @media (min-width: 600px) {
   .profile-grid {
     grid-template-columns: repeat(3, 1fr);

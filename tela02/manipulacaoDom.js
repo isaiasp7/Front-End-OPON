@@ -11,7 +11,6 @@ const createCard = (Profissional) => {
     <div class="avatar"></div>
     <div class="name">${Profissional.nome}</div>
     <div class="role">${Profissional.especializacao}</div>
-    <div class="experience">${Profissional.experiencia} de experiência</div>
     <div class="stars">${Profissional.avaliacao}</div>
   `; //avaliação ira ter uma condição para variar cor das estrelas
     card.addEventListener("mouseover", () => {
@@ -21,9 +20,9 @@ const createCard = (Profissional) => {
         card.classList.add("selected");
     });
     card.addEventListener("click", () => {
-        // Aqui você pode adicionar a lógica para redirecionar ou exibir detalhes do profissional
+        // lógica para redirecionar ou exibir detalhes do profissional
         
-        console.log(`Profissional selecionado: ${Profissional}`);
+        //console.log(`Profissional selecionado: ${Profissional.especializacao}`);
         sessionStorage.setItem("dadosProfissional", JSON.stringify(Profissional));
         window.location.href = "../tela03_detalhaPr/index.html";
     });

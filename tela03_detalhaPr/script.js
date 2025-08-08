@@ -8,12 +8,13 @@ const conteudoDinamico = document.getElementById("conteudo-dinamico");
 const dadosFixos = document.getElementById("dados-fixos");
 const tabButtons = document.querySelectorAll(".tab-button");
 
-const dadosProfissional = JSON.parse(sessionStorage.getItem("dadosProfissional"));
-// Preencher dados fixos
-nomeEl.textContent = dadosProfissional.nome;
-funcaoEl.textContent = dadosProfissional.funcao;
-avaliacaoEl.textContent = dadosProfissional.avaliacao;
-servicosEl.textContent = dadosProfissional.totalServicos;
+const objJSON = JSON.parse(sessionStorage.getItem("dadosProfissional"));
+console.log(objJSON);
+
+nomeEl.textContent = objJSON.nome;
+funcaoEl.textContent = objJSON.especializacao;
+avaliacaoEl.textContent = objJSON.avaliacao;
+servicosEl.textContent = objJSON.totalServicos;
 
 // Atualiza conteúdo com base na aba selecionada
 function atualizarConteudo(tipo) {
@@ -40,11 +41,29 @@ tabButtons.forEach(btn => {
 
 //enviando dados para o formulário
 export function enviarDados() {//Funções em módulos não são globalmente acessíveis no html.
-  console.log(sessionStorage.setItem("nome", Profissional.nome))
-  sessionStorage.setItem("nome", Profissional.nome);
-  sessionStorage.setItem("funcao", Profissional.funcao);
-  window.location.href = "../tela03_form/index.html";
+  //console.log(objJSON.nome)
+sessionStorage.setItem("dadosProfissional", JSON.stringify(objJSON));
+
   
+    
+switch (objJSON.especializacao) {
+  case "Pedreiro":
+      window.location.href = "../tela03_form/orcamento-pedreiro/index.html";
+    break;
+   case "Pintor":
+     window.location.href = "../tela03_form/orcamento-pintor/index.html";
+  case "Eletricista":
+      // window.location.href = "../tela03_form/orcamento-pintor";
+    break;
+    case "Encanador":
+      // window.location.href = "../tela03_form/orcamento-pintor";
+    // Expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+      console.log(`Sorry, we are out of ${objJSON.especializacao}.`); 
+ 
+  
+}
 }
 
 

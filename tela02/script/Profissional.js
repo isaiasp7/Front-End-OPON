@@ -8,18 +8,35 @@ export class Profissional {
     telefone,
     endereco,
     especializacao,
-    dataCadastro = new Date(),
-    avaliacao = 1.0
+    dataCadastro,
+    avaliacao
   ) {
-    this._idProfissional = idProfissional; // Integer
-    this._nome = nome;                     // String (até 100 caracteres)
-    this._email = email;                   // String (email)
-    this._senha = senha;                   // String
-    this._telefone = telefone;             // String (até 20 caracteres)
-    this._endereco = endereco;             // String (até 255 caracteres)
-    this._especializacao = especializacao; // String (texto grande)
-    this._dataCadastro = dataCadastro;    // Date (em JS)
-    this._avaliacao = avaliacao;           // Number (float)
+    // ✅ Caso seja passado um único objeto com todas as informações (ex: do sessionStorage)
+    if (typeof idProfissional === "object" && idProfissional !== null) {
+      const obj = idProfissional;
+      this._idProfissional = obj._idProfissional || null;
+      this._nome = obj._nome || "Nome Padrão";
+      this._email = obj._email || "";
+      this._senha = obj._senha || "";
+      this._telefone = obj._telefone || "";
+      this._endereco = obj._endereco || "";
+      this._especializacao = obj._especializacao || "";
+      this._dataCadastro = obj._dataCadastro
+        ? new Date(obj._dataCadastro)
+        : new Date();
+      this._avaliacao = obj._avaliacao || 1.0;
+    } else {
+      // ✅ Caso os valores sejam passados individualmente
+      this._idProfissional = idProfissional || null;
+      this._nome = nome || "Nome Padrão";
+      this._email = email || "";
+      this._senha = senha || "";
+      this._telefone = telefone || "";
+      this._endereco = endereco || "";
+      this._especializacao = especializacao || "";
+      this._dataCadastro = dataCadastro || new Date();
+      this._avaliacao = avaliacao || 1.0;
+    }
   }
 
   // Getters
