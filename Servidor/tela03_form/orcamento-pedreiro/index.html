@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Pedreiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-header">
+            <h1 class="form-title">Orçamento Pedreiro</h1>
+            <p class="form-description">Responda para fazer orçamento</p>
+        </div>
+        
+        <form id="orcamentoForm">
+            <!-- Seção de informações básicas -->
+            <div class="form-section">
+                <div class="question">
+                    <label class="question-title">E-mail <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="email-error">Por favor, insira um e-mail válido</div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Informe seu nome <span class="required">*</span></label>
+                    <input type="text" id="nome" name="nome" required>
+                    <div class="error-message" id="nome-error">Por favor, insira seu nome</div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Informe seu número de telefone (DDD) + Celular <span class="required">*</span></label>
+                    <input type="tel" id="telefone" name="telefone" required>
+                    <div class="error-message" id="telefone-error">Por favor, insira um número de telefone válido</div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">CEP <span class="required">*</span></label>
+                    <input type="text" id="cep" name="cep" required>
+                    <div class="error-message" id="cep-error">Por favor, insira um CEP válido</div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o serviço de Pedreiro está precisando? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="servico-geral" name="servico" value="Construção em Geral" checked>
+                            <label for="servico-geral">Construção em Geral</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="servico-paredes" name="servico" value="Paredes e Estruturas">
+                            <label for="servico-paredes">Paredes e Estruturas</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="servico-pisos" name="servico" value="Pisos e Revestimentos">
+                            <label for="servico-pisos">Pisos e Revestimentos</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção Construção em Geral -->
+            <div class="form-section" id="secao-construcao-geral">
+                <h2 class="section-title">Construção em Geral</h2>
+                
+                <div class="question">
+                    <label class="question-title">Qual serviço você procura? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-muro" name="servico-construcao" value="Construção de muro">
+                            <label for="servico-muro">Construção de muro</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-parede" name="servico-construcao" value="Construção de parede">
+                            <label for="servico-parede">Construção de parede</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-comodo" name="servico-construcao" value="Construção de cômodo">
+                            <label for="servico-comodo">Construção de cômodo</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-casa" name="servico-construcao" value="Construção de casa térrea">
+                            <label for="servico-casa">Construção de casa térrea</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-sobrado" name="servico-construcao" value="Construção de sobrado ou laje">
+                            <label for="servico-sobrado">Construção de sobrado ou laje</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-outro" name="servico-construcao" value="Outro">
+                            <label for="servico-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="servico-outro-input">
+                            <input type="text" id="servico-outro-texto" name="servico-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o local do serviço? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="local-casa" name="local-servico" value="Casa térrea">
+                            <label for="local-casa">Casa térrea</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="local-apartamento" name="local-servico" value="Apartamento">
+                            <label for="local-apartamento">Apartamento</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="local-sobrado" name="local-servico" value="Sobrado">
+                            <label for="local-sobrado">Sobrado</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="local-comercial" name="local-servico" value="Local comercial">
+                            <label for="local-comercial">Local comercial</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="local-outro" name="local-servico" value="Outro">
+                            <label for="local-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="local-outro-input">
+                            <input type="text" id="local-outro-texto" name="local-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quais são as medidas do local? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="medida-ate25" name="medidas" value="Até 25 m²">
+                            <label for="medida-ate25">Até 25 m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-25a50" name="medidas" value="25m² a 50m²">
+                            <label for="medida-25a50">25m² a 50m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-50a75" name="medidas" value="50m² a 75m²">
+                            <label for="medida-50a75">50m² a 75m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-75a100" name="medidas" value="75m² a 100m²">
+                            <label for="medida-75a100">75m² a 100m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-100a125" name="medidas" value="100m² a 125m²">
+                            <label for="medida-100a125">100m² a 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-mais125" name="medidas" value="Mais de 125m²">
+                            <label for="medida-mais125">Mais de 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-certeza" name="medidas" value="Não tenho certeza">
+                            <label for="medida-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-outro" name="medidas" value="Outro">
+                            <label for="medida-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="medida-outro-input">
+                            <input type="text" id="medida-outro-texto" name="medida-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quando você pretende realizar o serviço? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-urgente" name="tempo" value="Urgente (o quanto antes possível)">
+                            <label for="tempo-urgente">Urgente (o quanto antes possível)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-7dias" name="tempo" value="Nos próximos 7 dias">
+                            <label for="tempo-7dias">Nos próximos 7 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-15dias" name="tempo" value="Nos próximos 15 dias">
+                            <label for="tempo-15dias">Nos próximos 15 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-30dias" name="tempo" value="Nos próximos 30 dias">
+                            <label for="tempo-30dias">Nos próximos 30 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-indefinido" name="tempo" value="Não tenho data definida">
+                            <label for="tempo-indefinido">Não tenho data definida</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-outro" name="tempo" value="Outro">
+                            <label for="tempo-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="tempo-outro-input">
+                            <input type="text" id="tempo-outro-texto" name="tempo-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Detalhe seu pedido</label>
+                    <textarea id="detalhes-geral" name="detalhes-geral"></textarea>
+                </div>
+            </div>
+            
+            <!-- Seção Paredes e Estruturas -->
+            <div class="form-section hidden" id="secao-paredes">
+                <h2 class="section-title">Paredes e Estruturas</h2>
+                
+                <div class="question">
+                    <label class="question-title">Qual serviço você procura? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-chapisco" name="servico-paredes" value="Aplicação de chapisco">
+                            <label for="servico-chapisco">Aplicação de chapisco</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-emboco" name="servico-paredes" value="Aplicação de emboço">
+                            <label for="servico-emboco">Aplicação de emboço</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-reboco" name="servico-paredes" value="Aplicação de reboco">
+                            <label for="servico-reboco">Aplicação de reboco</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-massa" name="servico-paredes" value="Aplicação de massa corrida">
+                            <label for="servico-massa">Aplicação de massa corrida</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-reparos" name="servico-paredes" value="Correção/reparos (furos, rachaduras, etc)">
+                            <label for="servico-reparos">Correção/reparos (furos, rachaduras, etc)</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-demolicao" name="servico-paredes" value="Demolição">
+                            <label for="servico-demolicao">Demolição</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-impermeabilizacao" name="servico-paredes" value="Impermeabilização">
+                            <label for="servico-impermeabilizacao">Impermeabilização</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-instalacao" name="servico-paredes" value="Instalação de novo revestimento">
+                            <label for="servico-instalacao">Instalação de novo revestimento</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-substituicao" name="servico-paredes" value="Substituição do revestimento atual">
+                            <label for="servico-substituicao">Substituição do revestimento atual</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-paredes-outro" name="servico-paredes" value="Outro">
+                            <label for="servico-paredes-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="servico-paredes-outro-input">
+                            <input type="text" id="servico-paredes-outro-texto" name="servico-paredes-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o tipo de revestimento? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-azulejo" name="revestimento" value="Azulejo">
+                            <label for="revestimento-azulejo">Azulejo</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-cimento" name="revestimento" value="Cimento queimado">
+                            <label for="revestimento-cimento">Cimento queimado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-papel" name="revestimento" value="Papel de parede">
+                            <label for="revestimento-papel">Papel de parede</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-pastilhas" name="revestimento" value="Pastilhas">
+                            <label for="revestimento-pastilhas">Pastilhas</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-pedra" name="revestimento" value="Pedra, mármore ou granito">
+                            <label for="revestimento-pedra">Pedra, mármore ou granito</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-pintura" name="revestimento" value="Pintura(acrítica, esmalte, etc)">
+                            <label for="revestimento-pintura">Pintura(acrítica, esmalte, etc)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-porcelanato" name="revestimento" value="Porcelanato">
+                            <label for="revestimento-porcelanato">Porcelanato</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-textura" name="revestimento" value="Textura(massa texturizada)">
+                            <label for="revestimento-textura">Textura(massa texturizada)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-naoaplica" name="revestimento" value="Não se aplica">
+                            <label for="revestimento-naoaplica">Não se aplica</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-certeza" name="revestimento" value="Não tenho certeza">
+                            <label for="revestimento-certeza">Não tenho certeza</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o local do serviço? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-casa" name="local-paredes" value="Casa térrea">
+                            <label for="local-paredes-casa">Casa térrea</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-apartamento" name="local-paredes" value="Apartamento">
+                            <label for="local-paredes-apartamento">Apartamento</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-sobrado" name="local-paredes" value="Sobrado">
+                            <label for="local-paredes-sobrado">Sobrado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-sala" name="local-paredes" value="Sala comercial (escritório)">
+                            <label for="local-paredes-sala">Sala comercial (escritório)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-condominio" name="local-paredes" value="Condomínio">
+                            <label for="local-paredes-condominio">Condomínio</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-chacara" name="local-paredes" value="Chácara ou sítio">
+                            <label for="local-paredes-chacara">Chácara ou sítio</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-galpao" name="local-paredes" value="Galpão">
+                            <label for="local-paredes-galpao">Galpão</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-loft" name="local-paredes" value="Loft ou quitinete">
+                            <label for="local-paredes-loft">Loft ou quitinete</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-predio" name="local-paredes" value="Prédio">
+                            <label for="local-paredes-predio">Prédio</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-paredes-outro" name="local-paredes" value="Outro">
+                            <label for="local-paredes-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Em qual ambiente o serviço será realizado? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-externo" name="ambiente" value="Área externa(quintal, jardim, etc)">
+                            <label for="ambiente-externo">Área externa(quintal, jardim, etc)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-banheiro" name="ambiente" value="Banheiro(s)">
+                            <label for="ambiente-banheiro">Banheiro(s)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-cozinha" name="ambiente" value="Cozinha">
+                            <label for="ambiente-cozinha">Cozinha</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-dormitorio" name="ambiente" value="Dormitório(s)">
+                            <label for="ambiente-dormitorio">Dormitório(s)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-edicula" name="ambiente" value="Edícula">
+                            <label for="ambiente-edicula">Edícula</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-lavanderia" name="ambiente" value="Lavanderia">
+                            <label for="ambiente-lavanderia">Lavanderia</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-sala" name="ambiente" value="Sala de tv, estar ou jantar">
+                            <label for="ambiente-sala">Sala de tv, estar ou jantar</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-sacada" name="ambiente" value="Sacada ou varanda">
+                            <label for="ambiente-sacada">Sacada ou varanda</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-outro" name="ambiente" value="Outro">
+                            <label for="ambiente-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quais são as medidas do local? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-ate25" name="medidas-paredes" value="Até 25 m²">
+                            <label for="medida-paredes-ate25">Até 25 m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-25a50" name="medidas-paredes" value="25m² a 50m²">
+                            <label for="medida-paredes-25a50">25m² a 50m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-50a75" name="medidas-paredes" value="50m² a 75m²">
+                            <label for="medida-paredes-50a75">50m² a 75m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-75a100" name="medidas-paredes" value="75m² a 100m²">
+                            <label for="medida-paredes-75a100">75m² a 100m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-100a125" name="medidas-paredes" value="100m² a 125m²">
+                            <label for="medida-paredes-100a125">100m² a 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-mais125" name="medidas-paredes" value="Mais de 125m²">
+                            <label for="medida-paredes-mais125">Mais de 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-certeza" name="medidas-paredes" value="Não tenho certeza">
+                            <label for="medida-paredes-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-paredes-outro" name="medidas-paredes" value="Outro">
+                            <label for="medida-paredes-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="medida-paredes-outro-input">
+                            <input type="text" id="medida-paredes-outro-texto" name="medida-paredes-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Você fornecerá os materiais necessários? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-sim" name="materiais" value="Sim, os materiais serão fornecidos">
+                            <label for="materiais-sim">Sim, os materiais serão fornecidos</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-ajuda" name="materiais" value="Sim, mas preciso de ajuda do profissional">
+                            <label for="materiais-ajuda">Sim, mas preciso de ajuda do profissional</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-nao" name="materiais" value="Não, preciso que o profissional forneça os materiais">
+                            <label for="materiais-nao">Não, preciso que o profissional forneça os materiais</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-certeza" name="materiais" value="Não tenho certeza">
+                            <label for="materiais-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-outro" name="materiais" value="Outro">
+                            <label for="materiais-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="materiais-outro-input">
+                            <input type="text" id="materiais-outro-texto" name="materiais-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quando você pretende realizar o serviço? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-urgente" name="tempo-paredes" value="Urgente (o quanto antes possível)">
+                            <label for="tempo-paredes-urgente">Urgente (o quanto antes possível)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-7dias" name="tempo-paredes" value="Nos próximos 7 dias">
+                            <label for="tempo-paredes-7dias">Nos próximos 7 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-15dias" name="tempo-paredes" value="Nos próximos 15 dias">
+                            <label for="tempo-paredes-15dias">Nos próximos 15 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-30dias" name="tempo-paredes" value="Nos próximos 30 dias">
+                            <label for="tempo-paredes-30dias">Nos próximos 30 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-indefinido" name="tempo-paredes" value="Não tenho data definida">
+                            <label for="tempo-paredes-indefinido">Não tenho data definida</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-paredes-outro" name="tempo-paredes" value="Outro">
+                            <label for="tempo-paredes-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="tempo-paredes-outro-input">
+                            <input type="text" id="tempo-paredes-outro-texto" name="tempo-paredes-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Detalhe seu pedido</label>
+                    <textarea id="detalhes-paredes" name="detalhes-paredes"></textarea>
+                </div>
+            </div>  
+            </div>
+            
+            <!-- Seção Pisos e Revestimentos -->
+            <div class="form-section hidden" id="secao-pisos">
+                <h2 class="section-title">Pisos e Revestimentos</h2>
+
+                <div class="question">
+                    <label class="question-title">Pisos e revestimentos <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="piso-carpete" name="piso-tipo" value="Carpete">
+                            <label for="piso-carpete">Carpete</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-concreto" name="piso-tipo" value="Concreto">
+                            <label for="piso-concreto">Concreto</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-borracha" name="piso-tipo" value="Piso de borracha">
+                            <label for="piso-borracha">Piso de borracha</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-madeira" name="piso-tipo" value="Piso de madeira">
+                            <label for="piso-madeira">Piso de madeira</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-porcelanato" name="piso-tipo" value="Piso de porcelanato">
+                            <label for="piso-porcelanato">Piso de porcelanato</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-laminado" name="piso-tipo" value="Piso laminado">
+                            <label for="piso-laminado">Piso laminado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-vinilico" name="piso-tipo" value="Piso vinílico">
+                            <label for="piso-vinilico">Piso vinílico</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-rodapes" name="piso-tipo" value="Rodapés">
+                            <label for="piso-rodapes">Rodapés</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="piso-outro" name="piso-tipo" value="Outro">
+                            <label for="piso-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="piso-outro-input">
+                            <input type="text" id="piso-outro-texto" name="piso-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual serviço você procura? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-rodape" name="servico-pisos" value="Instalação de rodapé">
+                            <label for="servico-rodape">Instalação de rodapé</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-troca" name="servico-pisos" value="Troca do piso/revestimento antigo e instalação do novo">
+                            <label for="servico-troca">Troca do piso/revestimento antigo e instalação do novo</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-reparo" name="servico-pisos" value="Reparo do piso/revestimento atual">
+                            <label for="servico-reparo">Reparo do piso/revestimento atual</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-instalacao" name="servico-pisos" value="Instalação de piso/revestimento novo">
+                            <label for="servico-instalacao">Instalação de piso/revestimento novo</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="servico-pisos-outro" name="servico-pisos" value="Outro">
+                            <label for="servico-pisos-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="servico-pisos-outro-input">
+                            <input type="text" id="servico-pisos-outro-texto" name="servico-pisos-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o tipo de revestimento? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-cimento" name="revestimento-piso" value="Cimento queimado">
+                            <label for="revestimento-piso-cimento">Cimento queimado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-ceramico" name="revestimento-piso" value="Piso cerâmico">
+                            <label for="revestimento-piso-ceramico">Piso cerâmico</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-laminado" name="revestimento-piso" value="Piso laminado">
+                            <label for="revestimento-piso-laminado">Piso laminado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-vinilico" name="revestimento-piso" value="Piso vinílico">
+                            <label for="revestimento-piso-vinilico">Piso vinílico</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-porcelanato" name="revestimento-piso" value="Porcelanato">
+                            <label for="revestimento-piso-porcelanato">Porcelanato</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-porcelanato-liquido" name="revestimento-piso" value="Porcelanato líquido">
+                            <label for="revestimento-piso-porcelanato-liquido">Porcelanato líquido</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-concreto" name="revestimento-piso" value="Concreto">
+                            <label for="revestimento-piso-concreto">Concreto</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-nao" name="revestimento-piso" value="Não vou colocar piso">
+                            <label for="revestimento-piso-nao">Não vou colocar piso</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-certeza" name="revestimento-piso" value="Não tenho certeza">
+                            <label for="revestimento-piso-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="revestimento-piso-outro" name="revestimento-piso" value="Outro">
+                            <label for="revestimento-piso-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual o tipo de rodapé? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-cimento" name="rodape" value="Rodapé de cimento">
+                            <label for="rodape-cimento">Rodapé de cimento</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-madeira" name="rodape" value="Rodapé de madeira ou MDF">
+                            <label for="rodape-madeira">Rodapé de madeira ou MDF</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-marmore" name="rodape" value="Rodapé de mármore ou granito">
+                            <label for="rodape-marmore">Rodapé de mármore ou granito</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-poliestireno" name="rodape" value="Rodapé de poliestireno">
+                            <label for="rodape-poliestireno">Rodapé de poliestireno</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-porcelanato" name="rodape" value="Rodapé de porcelanato ou cerâmica">
+                            <label for="rodape-porcelanato">Rodapé de porcelanato ou cerâmica</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-pvc" name="rodape" value="Rodapé de PVC">
+                            <label for="rodape-pvc">Rodapé de PVC</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-nao" name="rodape" value="Não vou colocar rodapé">
+                            <label for="rodape-nao">Não vou colocar rodapé</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-certeza" name="rodape" value="Não tenho certeza">
+                            <label for="rodape-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="rodape-outro" name="rodape" value="Outro">
+                            <label for="rodape-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Qual é o local do serviço? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="local-pisos-casa" name="local-pisos" value="Casa térrea">
+                            <label for="local-pisos-casa">Casa térrea</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-pisos-apartamento" name="local-pisos" value="Apartamento">
+                            <label for="local-pisos-apartamento">Apartamento</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-pisos-sobrado" name="local-pisos" value="Sobrado">
+                            <label for="local-pisos-sobrado">Sobrado</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-pisos-comercial" name="local-pisos" value="Local comercial">
+                            <label for="local-pisos-comercial">Local comercial</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="local-pisos-outro" name="local-pisos" value="Outro">
+                            <label for="local-pisos-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Em qual ambiente o serviço será realizado? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-externo" name="ambiente-pisos" value="Área externa(quintal, jardim, etc)">
+                            <label for="ambiente-pisos-externo">Área externa(quintal, jardim, etc)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-banheiro" name="ambiente-pisos" value="Banheiro(s)">
+                            <label for="ambiente-pisos-banheiro">Banheiro(s)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-cozinha" name="ambiente-pisos" value="Cozinha">
+                            <label for="ambiente-pisos-cozinha">Cozinha</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-dormitorio" name="ambiente-pisos" value="Dormitório(s)">
+                            <label for="ambiente-pisos-dormitorio">Dormitório(s)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-sala" name="ambiente-pisos" value="Sala de tv, estar ou jantar">
+                            <label for="ambiente-pisos-sala">Sala de tv, estar ou jantar</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="ambiente-pisos-outro" name="ambiente-pisos" value="Outro">
+                            <label for="ambiente-pisos-outro">Outro</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quais são as medidas do local? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-ate25" name="medidas-pisos" value="Até 25 m²">
+                            <label for="medida-pisos-ate25">Até 25 m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-25a50" name="medidas-pisos" value="25m² a 50m²">
+                            <label for="medida-pisos-25a50">25m² a 50m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-50a75" name="medidas-pisos" value="50m² a 75m²">
+                            <label for="medida-pisos-50a75">50m² a 75m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-75a100" name="medidas-pisos" value="75m² a 100m²">
+                            <label for="medida-pisos-75a100">75m² a 100m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-100a125" name="medidas-pisos" value="100m² a 125m²">
+                            <label for="medida-pisos-100a125">100m² a 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-mais125" name="medidas-pisos" value="Mais de 125m²">
+                            <label for="medida-pisos-mais125">Mais de 125m²</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-certeza" name="medidas-pisos" value="Não tenho certeza">
+                            <label for="medida-pisos-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="medida-pisos-outro" name="medidas-pisos" value="Outro">
+                            <label for="medida-pisos-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="medida-pisos-outro-input">
+                            <input type="text" id="medida-pisos-outro-texto" name="medida-pisos-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Você fornecerá os materiais necessários? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-pisos-sim" name="materiais-pisos" value="Sim, os materiais serão fornecidos">
+                            <label for="materiais-pisos-sim">Sim, os materiais serão fornecidos</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-pisos-ajuda" name="materiais-pisos" value="Sim, mas preciso de ajuda do profissional">
+                            <label for="materiais-pisos-ajuda">Sim, mas preciso de ajuda do profissional</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-pisos-nao" name="materiais-pisos" value="Não, preciso que o profissional forneça os materiais">
+                            <label for="materiais-pisos-nao">Não, preciso que o profissional forneça os materiais</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-pisos-certeza" name="materiais-pisos" value="Não tenho certeza">
+                            <label for="materiais-pisos-certeza">Não tenho certeza</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="materiais-pisos-outro" name="materiais-pisos" value="Outro">
+                            <label for="materiais-pisos-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="materiais-pisos-outro-input">
+                            <input type="text" id="materiais-pisos-outro-texto" name="materiais-pisos-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Algum outro serviço precisa ser realizado? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="outro-servico-simples" name="outro-servico" value="Sim, reparos e instalações simples">
+                            <label for="outro-servico-simples">Sim, reparos e instalações simples</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="outro-servico-complexo" name="outro-servico" value="Sim, é um serviço mais complexo">
+                            <label for="outro-servico-complexo">Sim, é um serviço mais complexo</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="outro-servico-nao" name="outro-servico" value="Não, apenas serviço de piso/revestimento">
+                            <label for="outro-servico-nao">Não, apenas serviço de piso/revestimento</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="outro-servico-outro" name="outro-servico" value="Outro">
+                            <label for="outro-servico-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="outro-servico-outro-input">
+                            <input type="text" id="outro-servico-outro-texto" name="outro-servico-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Quando você pretende realizar o serviço? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-urgente" name="tempo-pisos" value="Urgente (o quanto antes possível)">
+                            <label for="tempo-pisos-urgente">Urgente (o quanto antes possível)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-7dias" name="tempo-pisos" value="Nos próximos 7 dias">
+                            <label for="tempo-pisos-7dias">Nos próximos 7 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-15dias" name="tempo-pisos" value="Nos próximos 15 dias">
+                            <label for="tempo-pisos-15dias">Nos próximos 15 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-30dias" name="tempo-pisos" value="Nos próximos 30 dias">
+                            <label for="tempo-pisos-30dias">Nos próximos 30 dias</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-indefinido" name="tempo-pisos" value="Não tenho data definida">
+                            <label for="tempo-pisos-indefinido">Não tenho data definida</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="tempo-pisos-outro" name="tempo-pisos" value="Outro">
+                            <label for="tempo-pisos-outro">Outro</label>
+                        </div>
+                        <div class="other-input" id="tempo-pisos-outro-input">
+                            <input type="text" id="tempo-pisos-outro-texto" name="tempo-pisos-outro-texto" placeholder="Especifique">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <label class="question-title">Detalhe seu pedido</label>
+                    <textarea id="detalhes-pisos" name="detalhes-pisos"></textarea>
+
+                    
+                </div>
+                
+                
+                
+            </div>
+            
+            
+            <div class="form-section">
+                <button type="submit" class="submit-btn">Enviar Orçamento</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

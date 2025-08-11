@@ -17,14 +17,54 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 65px;
   padding: 0px 30px 0 30px;
-  background-color: rgb(224, 154, 3);
+  background-color: rgb(236, 162, 0);
 }
 .Header>.atalhos{
   display: flex;
+  justify-content: space-around;
   gap: 50px;
 }
+
+    .borderImg>#balaoChat{
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    transform: scale(0.8);
+
+    }
+            .borderImg>#balaoChat:hover{
+              border-radius: 10px;
+          background-color: rgb(218, 150, 5);
+          transform: scale(0.9);
+          cursor:pointer;
+            }
+
+    .borderImg>#Perfil{
+        border-radius: 10px;
+        transform: scale(0.8);
+         transition: 0.3s ease-in-out;
+
+    } 
+        .borderImg>#Perfil:hover{
+            border-radius: 100%;
+            background-color: rgb(218, 150, 5);
+            transform: scale(0.9);
+             cursor:pointer;
+
+        }
+ 
+        #Logotipo{
+       transform: scale(0.4);
+       align-items: center;
+       margin-bottom: -6px;
+       margin-left: -180px;
+
+       
+       
+    }
+
 
 /* MENU TOPO */
 .top-bar-navegation {

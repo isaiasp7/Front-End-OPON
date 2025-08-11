@@ -1,0 +1,252 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1b1b1b;
+ 
+}
+.Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding: 0px 30px 0 30px;
+  background-color: rgb(236, 162, 0);
+}
+.Header>.atalhos{
+  display: flex;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+    .borderImg>#balaoChat{
+    padding: 0 10px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    transform: scale(0.8);
+
+    }
+            .borderImg>#balaoChat:hover{
+              border-radius: 10px;
+          background-color: rgb(218, 150, 5);
+          transform: scale(0.9);
+          cursor:pointer;
+            }
+
+    .borderImg>#Perfil{
+        border-radius: 10px;
+        transform: scale(0.8);
+         transition: 0.3s ease-in-out;
+
+    } 
+        .borderImg>#Perfil:hover{
+            border-radius: 100%;
+            background-color: rgb(218, 150, 5);
+            transform: scale(0.9);
+             cursor:pointer;
+
+        }
+ 
+        #Logotipo{
+       transform: scale(0.4);
+       align-items: center;
+       margin-bottom: -6px;
+       margin-left: -180px;
+
+       
+       
+    }
+
+
+/* MENU TOPO */
+.top-bar-navegation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ddd transparent 0.5;
+  padding: 10px;
+  
+  margin-bottom: 10px;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid rgb(121, 117, 117);
+}
+
+ 
+
+     .top-bar-navegation button {
+       font-size: 15px;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  transition: ease-out 0.3s; /* Necessário para posicionar o ::after */
+}
+button:hover {
+ font-size: 20px; /* Muda a cor do texto no hover */
+}
+
+.top-bar-navegation button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0; /* Começa com 0 de largura */
+  height: 2px;
+  background-color: rgb(246, 255, 254);
+  transition: width 0.34s ease-out; /* Transição suave */
+}
+
+.top-bar-navegation button:hover::after {
+  width: 100%; /* Expandir para 100% no hover */
+  
+}
+.top-bar-navegation button.ativo {
+  font-size: 18px;
+  /* Não usa border-bottom, controlamos tudo via ::after */
+}
+
+.top-bar-navegation button.ativo::after {
+  width: 100%;
+  background-color: rgb(239, 245, 255); /* Ou outra cor de destaque */
+}
+.divSearch{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+   border-bottom: 1px solid rgb(121, 117, 117);
+
+}
+     .divSearch>#input{
+        display: flex;
+        height: 40px;
+        width: 25%;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        margin: 0 10px 10px ;
+         border-radius: 20px;
+        background-color: rgb(255, 255, 255);
+
+      }
+     
+      input[type="search"]::-webkit-search-{
+        color: rgb(31, 21, 112);
+      }
+
+
+  .divSearch>#input>#search{
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: end;
+      outline: none; /* Remove a borda padrão do navegador ao focar */
+       border: 1px solid transparent ;
+       border-radius: 20px;
+      padding-left: 15px;
+      transition:ease-in-out 1s;
+      color: black
+  }
+     
+      #input>img{
+        height: 30px;
+        width:30px;
+       margin-right: 10px;
+        transform: scale(0.6) rotateY(180deg);
+
+      }
+  #search:focus{
+   border-color: #707070;
+   border-radius: 20px;
+
+  }
+ 
+
+    .hamburger {
+      padding-left: 5px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+/* GRID DE PERFIS */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.profile-card {
+  background-color: #ccc;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  
+  transition: 0.1s;
+}
+
+.profile-card.selected {
+  outline: 3px solid rgb(168, 116, 4);
+}
+
+.avatar {
+  background-color: black;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+.name {
+  font-weight: bold;
+  color: #1b1b1b;
+  margin-bottom: 4px;
+}
+
+.role,
+.experience {
+  font-size: 0.9em;
+  color: #444;
+}
+
+
+
+
+.stars{
+  color: rgba(5, 42, 110, 0.705);
+  font-size:large;
+  margin-top: 5px;
+}
+/*
+.stars_nice{
+  color: rgb(0, 0, 0);
+  margin-top: 5px;
+}
+.stars_bad {
+  color: rgb(0, 0, 0);
+  margin-top: 5px;
+}
+  
+*/
+@media (min-width: 600px) {
+  .profile-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .profile-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

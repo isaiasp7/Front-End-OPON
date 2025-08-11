@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
+  <title>Layout Base</title>
+
+</head>
+<body>
+  <div class="Header">
+    <div class="borderImg">
+       <img src="../Imgs/WhatsApp_Image_2025-08-09_at_13.36.13-removebg-preview.png" alt="Logotipo" id="Logotipo" >
+    </div>
+    <div class="atalhos">
+      <div class="borderImg">
+        <img id="balaoChat" tabindex="0"src="../Imgs/falando (3).png" alt="iconeChat" title="Chat">
+          
+      </div>
+      <div class="borderImg"> 
+        <img id="Perfil" tabindex="0"src="../Imgs/do-utilizador (1).png" alt="iconePerfil" title="Perfil">
+      </div>
+    </div>
+  </div>
+  <!-- Menu Topo -->
+  <div class="top-bar-navegation">
+    
+   
+    <button id="b1" value="Eletricista" >Eletricista</button>
+    <button id ="b2" value="Pintor" >Pintor</button>
+    <button id="b3" value="Pedreiro" >Pedreiro</button>
+    <button id="b4" value="Encanador" >Encanador</button>
+
+        
+  </div>
+  <div class="divSearch">
+    <div id="input">
+       <input type="search" name="pesquisa" id="search" >
+    <img src="../Imgs/lupa-removebg-preview.png" alt="" >
+    </div>
+    <div class="hamburger">☰</div>
+  </div>
+  
+
+  <!-- Grid de Perfis -->
+  <div class="profile-grid" id="grid">
+    <!-- Perfis gerados via JS -->
+  </div>
+  <script src="./manipulacaoDom.js"  type="module" defer>
+
+  </script>
+
+</body>
+</html>
