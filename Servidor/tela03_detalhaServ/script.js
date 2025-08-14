@@ -1,34 +1,18 @@
-import { Servicos } from "../../Service_js/Servicos";
+import { Servicos } from "../../Service_js/Servicos.js";
 
-const nomeEl = document.getElementById("nome");
-const funcaoEl = document.getElementById("funcao");
-const avaliacaoEl = document.getElementById("avaliacao");
-const servicosEl = document.getElementById("servicos");
+const categoriaElemento = document.getElementById("nome");
+const tituloElemento = document.getElementById("funcao");
+const descricaoElemento = document.getElementById("avaliacao");
+const enderecoElemento = document.getElementById("servicos");
 const conteudoDinamico = document.getElementById("conteudo-dinamico");
-const dadosFixos = document.getElementById("dados-fixos");
-const tabButtons = document.querySelectorAll(".tab-button");
 
 const objJSON = JSON.parse(sessionStorage.getItem("dadosServicos"));
 console.log(objJSON);
 
-nomeEl.textContent = objJSON.nome;
-funcaoEl.textContent = objJSON.especializacao;
-avaliacaoEl.textContent = objJSON.avaliacao;
-servicosEl.textContent = objJSON.totalServicos;
-
-// Atualiza conteúdo com base na aba selecionada
-function atualizarConteudo(tipo) {
-  if (tipo === "especificacoes") {
-    dadosFixos.style.display = "block";
-    conteudoDinamico.innerHTML = `<p class="descricao">${Servicos.descricao}</p>`;
-  } else {
-    dadosFixos.style.display = "none";
-    conteudoDinamico.innerHTML = `
-      <p><strong>Últimos Serviços:</strong></p>
-      <dl>${Servicos.historico.map(s => `<dt>${s}</dt>`).join('')}</dl>
-    `;
-  }
-}
+categoriaElemento.textContent = objJSON.categoria;
+tituloElemento.textContent = objJSON.titulo;
+descricaoElemento.textContent = objJSON.descricao;
+enderecoElemento.textContent = objJSON.totalServicos;
 
 // Alterna abas
 tabButtons.forEach(btn => {

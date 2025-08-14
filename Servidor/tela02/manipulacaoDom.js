@@ -9,13 +9,12 @@ const createCard = (Servicos) => {
     card.className = "profile-card";
     card.innerHTML = `
     <div class="avatar"></div>
-    <div class="name">${Servicos.titulo}</div>
-    <div class="role">${Servicos.categoria}</div>
-    <div class="stars">${Servicos.dataSolicitada}</div>
+    <div class="name">${Servicos.categoria}</div>
+    <div class="role">${Servicos.titulo}</div>
   `; //avaliação ira ter uma condição sara variar cor das estrelas
     card.addEventListener("mouseover", () => {
         document
-            .querySelectorAll(".srofile-card")
+            .querySelectorAll(".profile-card")
             .forEach((c) => c.classList.remove("selected"));
         card.classList.add("selected");
     });
@@ -24,7 +23,7 @@ const createCard = (Servicos) => {
         
         //console.log(`Servicos selecionado: ${Servicos.essecializacao}`);
         sessionStorage.setItem("dadosServicos", JSON.stringify(Servicos));
-        window.location.href = "../tela03_detalhasr/index.html";
+        window.location.href = "../tela03_detalhaServ/index.html";
     });
     return card;
 };
