@@ -57,6 +57,7 @@ async function validarCliente() {
             console.log(data)
             limpar()
             setTimeout(() => {
+                sessionStorage.setItem("dadosCliente", JSON.stringify(data));//envia dados do cliente para a próxima tela
                 window.location.href = '../../Cliente/tela02/index.html'
                 setTimeout(() => notificacao.remove(), 500);
             }, 3000)
@@ -96,6 +97,7 @@ async function validarProfissional() {
             console.log(data)
             limpar()
             setTimeout(() => {
+                sessionStorage.setItem("dadosProfissional", JSON.stringify(data));//envia dados do profissional para a próxima tela
                 window.location.href = '../../Servidor/tela02/index.html'
                 setTimeout(() => notificacao.remove(), 500);
             }, 3000)

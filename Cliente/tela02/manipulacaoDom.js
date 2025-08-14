@@ -1,7 +1,12 @@
 "use strict";
-import { Profissional } from "./script/Profissional.js"; // Importa o objeto Profissional
+import { Profissional } from "../../Service_js/Profissional"; // Importa o objeto Profissional
 import { ApiService } from "./script/ConexaoBanco.js"; // Importa o serviço de API
 //tsc -w para converter em tempo real ts para js
+
+/*
+const objJSON = JSON.parse(sessionStorage.getItem("dadosCliente"));
+console.log(objJSON);//recebe os dados de login do cliente
+*/ 
 
 const grid = document.getElementById("grid");
 const createCard = (Profissional) => {

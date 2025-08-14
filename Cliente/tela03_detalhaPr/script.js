@@ -1,5 +1,6 @@
-import { Profissional } from '../tela02/script/Profissional.js';
-// import { estadoUsuario } from '../../Login/js/functions.js';
+
+import { Profissional } from "../../Service_js/Profissional";
+
 
 const nomeEl = document.getElementById("nome");
 const funcaoEl = document.getElementById("funcao");

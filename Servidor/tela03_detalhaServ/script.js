@@ -1,4 +1,4 @@
-import { Profissional } from '../tela02/script/Profissional.js';
+import { Servicos } from "../../Service_js/Servicos";
 
 const nomeEl = document.getElementById("nome");
 const funcaoEl = document.getElementById("funcao");
@@ -8,7 +8,7 @@ const conteudoDinamico = document.getElementById("conteudo-dinamico");
 const dadosFixos = document.getElementById("dados-fixos");
 const tabButtons = document.querySelectorAll(".tab-button");
 
-const objJSON = JSON.parse(sessionStorage.getItem("dadosProfissional"));
+const objJSON = JSON.parse(sessionStorage.getItem("dadosServicos"));
 console.log(objJSON);
 
 nomeEl.textContent = objJSON.nome;
@@ -20,12 +20,12 @@ servicosEl.textContent = objJSON.totalServicos;
 function atualizarConteudo(tipo) {
   if (tipo === "especificacoes") {
     dadosFixos.style.display = "block";
-    conteudoDinamico.innerHTML = `<p class="descricao">${Profissional.descricao}</p>`;
+    conteudoDinamico.innerHTML = `<p class="descricao">${Servicos.descricao}</p>`;
   } else {
     dadosFixos.style.display = "none";
     conteudoDinamico.innerHTML = `
       <p><strong>Últimos Serviços:</strong></p>
-      <dl>${Profissional.historico.map(s => `<dt>${s}</dt>`).join('')}</dl>
+      <dl>${Servicos.historico.map(s => `<dt>${s}</dt>`).join('')}</dl>
     `;
   }
 }
@@ -42,7 +42,7 @@ tabButtons.forEach(btn => {
 //enviando dados para o formulário
 export function enviarDados() {//Funções em módulos não são globalmente acessíveis no html.
   //console.log(objJSON.nome)
-sessionStorage.setItem("dadosProfissional", JSON.stringify(objJSON));
+sessionStorage.setItem("dadosServicos", JSON.stringify(objJSON));
 
   
     

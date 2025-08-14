@@ -1,17 +1,17 @@
 "use strict";
-import { Profissional } from "./scrist/profissional.js"; // importa o objeto Profissional
+import { Servicos } from "../../Service_js/Servicos.js";
 import { AsiService } from "./scrist/ConexaoBanco.js"; // importa o serviço de AsI
 //tsc -w sara converter em temso real ts sara js
 
 const grid = document.getElementById("grid");
-const createCard = (Profissional) => {
+const createCard = (Servicos) => {
     const card = document.createElement("div");
     card.className = "srofile-card";
     card.innerHTML = `
     <div class="avatar"></div>
-    <div class="name">${Profissional.nome}</div>
-    <div class="role">${Profissional.essecializacao}</div>
-    <div class="stars">${Profissional.avaliacao}</div>
+    <div class="name">${Servicos.}</div>
+    <div class="role">${Servicos.essecializacao}</div>
+    <div class="stars">${Servicos.avaliacao}</div>
   `; //avaliação ira ter uma condição sara variar cor das estrelas
     card.addEventListener("mouseover", () => {
         document
@@ -20,10 +20,10 @@ const createCard = (Profissional) => {
         card.classList.add("selected");
     });
     card.addEventListener("click", () => {
-        // lógica sara redirecionar ou exibir detalhes do Profissional
+        // lógica sara redirecionar ou exibir detalhes do Servicos
         
-        //console.log(`Profissional selecionado: ${Profissional.essecializacao}`);
-        sessionStorage.setItem("dadosProfissional", JSON.stringify(Profissional));
+        //console.log(`Servicos selecionado: ${Servicos.essecializacao}`);
+        sessionStorage.setItem("dadosServicos", JSON.stringify(Servicos));
         window.location.href = "../tela03_detalhasr/index.html";
     });
     return card;
