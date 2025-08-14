@@ -1,0 +1,15 @@
+{
+  "profissao": "Pintor",
+  "cliente": {
+    "nome": "José Souza",
+    "telefone": "11999999999",
+    "email": "jose@email.com",
+    "cep": "56000-000"
+  },
+  "prazo": "7 dias",
+  "detalhes": "Pintar a fachada de uma loja",
+  "destino": {
+    "id": 9,
+    "nome": "Paulo Silva"
+  }
+}

@@ -201,7 +201,10 @@ button:hover {
 }
 
 .avatar {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url(../Imgs/icone-perfil.png);
+  background-size: contain;
+  background-position: center;
   width: 70px;
   height: 70px;
   border-radius: 50%;

@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    align-items: center; 
+    height: 100vh;  
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px;
+
+}
+
+.form-container {
+    background-color: #111;
+    padding: 15px;
+    border-radius: 20px;
+    width: 60%;
+    box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.5);
+    
+}
+
+h2 {
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+textarea {
+    width: 95%;
+    height: 70px;
+    resize: none;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.radio-group label {
+    font-size: 14px;
+    margin: 3px 0;
+}
+
+.btn-submit {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 5px;
+    transition: 0.3s;
+    display: block; 
+    margin: 20px auto 0;
+    
+}
+
+.btn-submit:hover {
+    background-color: yellow;
+}
+
+/* Coluna Direita */
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    padding-top: 80px;
+}
+
+.info-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.info-img {
+    max-width: 100%;
+    border-radius: 10px;
+}

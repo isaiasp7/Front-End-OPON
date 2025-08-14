@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento - Encanador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        
+        <!-- Formulário - (Coluna Esquerda) -->
+        <div class="form-container">
+
+            <P ID="nomeServidor" class="servidor-nome"></P>
+            <h2>ORÇAMENTO ENCANADOR</h2>
+
+            
+
+            <form id="orcamentoForm">
+                <!-- Bloco 1 -->
+                <div class="input-group">
+                    <div class="input-box">
+                        <label>Nome</label>
+                        <input type="text" id="nome" placeholder="Francisco Andrade" required>
+                    </div>
+                    <div class="input-box">
+                        <label>Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(87)9 9123-4567" required>
+                    </div>
+                </div>
+
+                <!-- Bloco 2 -->
+                <div class="input-group">
+                    <div class="input-box">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="fran@teste.com" required>
+                    </div>
+                    <div class="input-box">
+                        <label>CEP</label>
+                        <input type="text" id="cep" placeholder="56000-000" required>
+                    </div>
+                </div>
+
+                <!-- Prazo -->
+                <p>Quando você pretende realizar o serviço?</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="prazo" value="Urgente" required> Urgente (o quanto antes possível)</label>
+                    <label><input type="radio" name="prazo" value="Próximos 7 dias"> Nos próximos 7 dias</label>
+                    <label><input type="radio" name="prazo" value="Próximos 15 dias"> Nos próximos 15 dias</label>
+                    <label><input type="radio" name="prazo" value="Próximos 30 dias"> Nos próximos 30 dias</label>
+                    <label><input type="radio" name="prazo" value="Sem data definida"> Não tenho data definida</label>
+                </div>
+
+                <!-- Destino -->
+                <p>Deseja enviar para?</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="destino" value="Esse Profissional" required> Esse Profissional</label>
+                    <label><input type="radio" name="destino" value="Todos da área"> Todos os Profissionais da área</label>
+                </div>
+
+                <!-- Detalhes e Botão -->
+                <label>Detalhe seu Pedido</label>
+                <textarea id="detalhes" placeholder="Preciso concertar O encanamento da cozinha ..." required></textarea>
+
+                <button type="submit" class="btn-submit">ENVIAR ORÇAMENTO</button>
+            </form>
+        </div>
+
+        <!-- Texto e Imagem - (Coluna Direita) -->
+        <div class="info-container">
+            <p class="info-text">Preencha o formulário e solicite seu orçamento.</p>
+            <img src="../imagens/encanador.png" alt="Pintor" class="info-img">
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
