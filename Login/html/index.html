@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <title>Tela de login</title>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="../css/index_style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="background">
+
+        <div class="form-back"></div>
+
+        <form class="form" id="form">
+
+            <h2>Login</h2>
+            <input class="email" type="email" id="email" name="email" placeholder="Email" />
+            <input class="senha" type="password" id="senha" name="Senha" placeholder="Senha" />
+
+            <div class="conteudo-radio">
+
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="usuario" id="cliente" value="cliente" checked>
+                    <label class="form-check-label" for="cliente">
+                        Cliente
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="usuario" id="profissional" value="profissional">
+                    <label class="form-check-label" for="profissional">
+                        Profissional
+                    </label>
+                </div>
+
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" name="checkbox" />
+                <span>Lembrar usuario</span>
+            </div>
+
+            <div class="recuperar">
+                <a href="#" target="_blank">Esqueceu a senha</a>
+            </div>
+
+            <div class="clear"></div>
+
+            <input class="enviar" type="submit" name="enviar" value="Entrar" />
+            <span>Não tem uma conta?</span>
+            <a href="../../Cadastro/index.html">Registrar-se</a>
+
+        </form><!--Form-->
+
+
+    </div><!--Background-->
+
+
+
+
+</body>
+
+<script src="../js/functions.js"></script>
+
+</html>
