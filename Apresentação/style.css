@@ -22,9 +22,10 @@ body {
 }
 
 .logo {
-  width: 30px;
-  height: 30px;
-  background-color: #c44;
+  width: 70px;
+  height: 70px;
+  background-image: url(images/LOGO.png);
+  background-size: contain;
   border-radius: 50%;
 }
 
@@ -48,7 +49,10 @@ body {
 .intro-section {
     margin-top: 20px;
     height: 100px;
-    background-color: #771717;
+    /* background-color: #771717; */
+    background-image: url(../Login/images/background.png);
+    background-position: center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     min-height: 60vh;

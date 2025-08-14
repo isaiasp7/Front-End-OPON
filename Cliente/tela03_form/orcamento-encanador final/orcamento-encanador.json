@@ -1,0 +1,15 @@
+{
+  "profissao": "Encanador",
+  "cliente": {
+    "nome": "Carla Souza",
+    "telefone": "11999999999",
+    "email": "carla@email.com",
+    "cep": "56000-000"
+  },
+  "prazo": "3 dias",
+  "detalhes": "Encanamento da cozinha",
+  "destino": {
+    "id": 5,
+    "nome": "José da Costa"
+  }
+}

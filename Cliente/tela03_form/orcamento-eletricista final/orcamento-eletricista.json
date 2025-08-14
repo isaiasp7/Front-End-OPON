@@ -1,0 +1,15 @@
+{
+  "profissao": "Eletricista",
+  "cliente": {
+    "nome": "Maria Souza",
+    "telefone": "11999999999",
+    "email": "maria@email.com",
+    "cep": "56000-000"
+  },
+  "prazo": "3 dias",
+  "detalhes": "Pintura sala e cozinha",
+  "destino": {
+    "id": 45,
+    "nome": "João da Silva"
+  }
+}

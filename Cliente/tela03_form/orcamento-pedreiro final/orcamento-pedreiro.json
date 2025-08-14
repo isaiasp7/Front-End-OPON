@@ -1,0 +1,15 @@
+{
+  "profissao": "Pedreiro",
+  "cliente": {
+    "nome": "José Souza",
+    "telefone": "11999999999",
+    "email": "jose@email.com",
+    "cep": "56000-000"
+  },
+  "prazo": "3 dias",
+  "detalhes": "Construir um muro",
+  "destino": {
+    "id": 6,
+    "nome": "Marcos Silva"
+  }
+}

@@ -1,6 +1,7 @@
 const formulario = document.getElementById('form')
 const email = document.getElementById('email')
 const senha = document.getElementById('senha')
+// export const estadoUsuario = {conectado : false};
 
 const URL_LOCAL = "http://localhost:8080";
 
@@ -50,6 +51,8 @@ async function validarCliente() {
 
         if (response.ok) {
             notificacao("Login realizado com sucesso!!", "#4CAF50");
+            // estadoUsuario.conectado = true;
+            sessionStorage.setItem('usuarioConectado', 'true');
             const data = await response.json()
             console.log(data)
             limpar()

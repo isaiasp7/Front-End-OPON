@@ -54,7 +54,9 @@ h2 {
 .photo {
   width: 120px;
   height: 120px;
-  background-color: black;
+  background-image: url(../Imgs/icone-perfil.png);
+  background-size: contain;
+  background-position: center;
   margin: 0 auto 10px;
   border-radius: 15px;
 }
@@ -94,3 +96,16 @@ h2 {
     margin-left: 40px;
   
   }
+
+.notificacao {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 99;
+}
