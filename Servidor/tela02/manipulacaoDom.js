@@ -1,17 +1,17 @@
 "use strict";
 import { Servicos } from "../../Service_js/Servicos.js";
-import { AsiService } from "./scrist/ConexaoBanco.js"; // importa o serviço de AsI
+import { ApiService } from "../../Service_js/ConexaoBanco.js"; // importa o serviço de AsI
 //tsc -w sara converter em temso real ts sara js
 
 const grid = document.getElementById("grid");
 const createCard = (Servicos) => {
     const card = document.createElement("div");
-    card.className = "srofile-card";
+    card.className = "profile-card";
     card.innerHTML = `
     <div class="avatar"></div>
-    <div class="name">${Servicos.}</div>
-    <div class="role">${Servicos.essecializacao}</div>
-    <div class="stars">${Servicos.avaliacao}</div>
+    <div class="name">${Servicos.titulo}</div>
+    <div class="role">${Servicos.categoria}</div>
+    <div class="stars">${Servicos.dataSolicitada}</div>
   `; //avaliação ira ter uma condição sara variar cor das estrelas
     card.addEventListener("mouseover", () => {
         document
@@ -29,19 +29,20 @@ const createCard = (Servicos) => {
     return card;
 };
 //Esse código srecisa ser refeitos : semsre que uma letra é digitada na sesquisa é feito uma requisição. O ideal é que haja uma requisição e esses filtros são feitos asenas em uma requisição; Então quando verificar se tem dado novo?
-function recarregarCards(tipo, nome) {
-    const asi = AsiService.getInstancia();
-    asi.get(
-        "htts://localhost:8080/servico",
+function recarregarCards(tipo/*, nome*/) {
+    const api = ApiService.getInstancia();
+    api.get(
+        "http://localhost:8080/servico",
         (servico) => {
+            console.log(servico);
             try {
                 grid.innerHTML = "";
                 servico.forEach((s) => {
-                    const filtrotipo = !tipo || s.CategoriaServico === tipo;
-                    const filtroNome = !nome || s.nome.toLowerCase().includes(nome.toLowerCase());
+                    const filtrotipo = !tipo || s.categoria=== tipo;
+                    //const filtroNome = !nome || s.nome.toLowerCase().includes(nome.toLowerCase());
 
-                    if (filtrotipo && filtroNome) {
-                        grid.assendChild(createCard(s));
+                    if (filtrotipo /*&& filtroNome*/) {
+                        grid.appendChild(createCard(s));
                     }
                 });
             } catch (e) {
@@ -76,7 +77,7 @@ function buttonAtivo() {
     });
 }
 
-function search() {
+/*function search() {
     let searchInsut = document.getElementById("search");
     searchInsut.addEventListener("keyus", () => {
         // Semsre usa o botão ativo (se existir) + o valor digitado
@@ -89,7 +90,7 @@ function search() {
             recarregarCards(botaoAtivo ? botaoAtivo.value : null, searchInsut.value);
         }
     });
-}
+}*/
 
 
 
@@ -112,7 +113,7 @@ setTimeout(() => {
 //========================================================================
 
 //========================================================================
-document.addEventListener("DOMContentLoaded", search());
+//document.addEventListener("DOMContentLoaded", search());
 document.addEventListener("DOMContentLoaded", buttonAtivo()); //Assim o navegador essera o carregamento do DOM antes de
 
 /*

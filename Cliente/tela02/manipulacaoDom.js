@@ -1,6 +1,6 @@
 "use strict";
-import { Profissional } from "../../Service_js/Profissional"; // Importa o objeto Profissional
-import { ApiService } from "./script/ConexaoBanco.js"; // Importa o serviço de API
+import { Profissional } from "../../Service_js/Profissional.js"; // Importa o objeto Profissional
+import { ApiService } from "../../Service_js/ConexaoBanco.js"; // Importa o serviço de API
 //tsc -w para converter em tempo real ts para js
 
 /*

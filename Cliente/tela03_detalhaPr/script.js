@@ -1,5 +1,5 @@
 
-import { Profissional } from "../../Service_js/Profissional";
+import { Profissional } from "../../Service_js/Profissional.js";
 
 
 const nomeEl = document.getElementById("nome");
