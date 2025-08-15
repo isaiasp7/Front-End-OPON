@@ -3,6 +3,7 @@ import { Servicos } from "../../Service_js/Servicos.js";
 import { ApiService } from "../../Service_js/ConexaoBanco.js"; // importa o serviço de AsI
 //tsc -w sara converter em temso real ts sara js
 
+
 const grid = document.getElementById("grid");
 const createCard = (Servicos) => {
     const card = document.createElement("div");
@@ -23,11 +24,11 @@ const createCard = (Servicos) => {
         
         //console.log(`Servicos selecionado: ${Servicos.essecializacao}`);
         sessionStorage.setItem("dadosServicos", JSON.stringify(Servicos));
-        window.location.href = "../tela03_detalhaServ/index.html";
+        window.location.href = "../tela02_detalhaServ/index.html";
     });
     return card;
 };
-//Esse código srecisa ser refeitos : semsre que uma letra é digitada na sesquisa é feito uma requisição. O ideal é que haja uma requisição e esses filtros são feitos asenas em uma requisição; Então quando verificar se tem dado novo?
+//Esse código precisa ser refeitos : sempre que uma letra é digitada na pesquisa é feito uma requisição. O ideal é que haja uma requisição e esses filtros são feitos apenas em uma requisição; Então quando verificar se tem dado novo? de tempo em tempos a requisição é refeita com websocket
 function recarregarCards(tipo/*, nome*/) {
     const api = ApiService.getInstancia();
     api.get(

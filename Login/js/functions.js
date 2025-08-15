@@ -49,19 +49,31 @@ async function validarCliente() {
             senha: senha.value
         })
 
-        if (response.ok) {
-            notificacao("Login realizado com sucesso!!", "#4CAF50");
-            // estadoUsuario.conectado = true;
-            sessionStorage.setItem('usuarioConectado', 'true');
-            const data = await response.json()
-            console.log(data)
-            limpar()
-            setTimeout(() => {
-                sessionStorage.setItem("dadosCliente", JSON.stringify(data));//envia dados do cliente para a próxima tela
-                window.location.href = '../../Cliente/tela02/index.html'
-                setTimeout(() => notificacao.remove(), 500);
-            }, 3000)
-        } else {
+       if (response.ok) {
+            try {
+                notificacao("Login realizado com sucesso!", "#4CAF50");
+                
+                // Armazena o estado básico de login
+                sessionStorage.setItem('usuarioConectado', 'true');
+                
+                const data = await response.json();
+                console.log('Dados da resposta:', data);
+                
+                limpar(); // Limpa o formulário
+                
+                // Armazena todos os dados do usuário antes do redirecionamento
+                sessionStorage.setItem("usuarioData", JSON.stringify(data));
+                
+                setTimeout(() => {
+                    
+                    window.location.href = '../../Cliente/tela02_detalhaServ/index.html';
+                }, 2500); // Reduzido para 2.5s para melhor UX
+                
+            } catch (error) {
+                console.error('Erro ao processar login:', error);
+                notificacao("Erro ao processar seu login", "#DC3545");
+            }
+        }else {
             const errorData = await response.json();
             console.log('Erro: ', errorData.message);
             notificacao("Credenciais inválidas", "#DC3545")
@@ -91,17 +103,34 @@ async function validarProfissional() {
             senha: senha.value
         })
 
-        if (response.ok) {
-            notificacao("Login realizado com sucesso!!", "#4CAF50");
-            const data = await response.json()
-            console.log(data)
-            limpar()
-            setTimeout(() => {
-                sessionStorage.setItem("dadosProfissional", JSON.stringify(data));//envia dados do profissional para a próxima tela
-                window.location.href = '../../Servidor/tela02/index.html'
-                setTimeout(() => notificacao.remove(), 500);
-            }, 3000)
-        } else {
+       if (response.ok) {
+    try {
+        notificacao("Login realizado com sucesso!", "#4CAF50");
+        
+        // Armazena o status de login e os dados do profissional
+        sessionStorage.setItem('usuarioConectado', 'true');
+        const data = await response.json();
+        console.log('Dados do profissional:', data);
+        
+        limpar(); // Limpa o formulário de login
+        
+        // Prepara os dados para a próxima tela
+        sessionStorage.setItem("dadosProfissional", JSON.stringify(data));
+        
+        // Configura o redirecionamento
+        setTimeout(() => {
+            
+            window.location.href = '../../Servidor/tela01 - profissional/index.html';
+        }, 2500); // 2.5 segundos para melhor UX
+        
+    } catch (error) {
+        console.error('Erro no login do profissional:', error);
+        notificacao("Erro ao processar login", "#DC3545");
+        // Opcional: Limpar o sessionStorage em caso de erro
+        sessionStorage.removeItem('usuarioConectado');
+        sessionStorage.removeItem('dadosProfissional');
+    }
+} else {
             const errorData = await response.json();
             console.log('Erro: ', errorData.message);
             notificacao("Credenciais inválidas", "#DC3545")
