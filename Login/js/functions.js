@@ -66,7 +66,7 @@ async function validarCliente() {
                 
                 setTimeout(() => {
                     
-                    window.location.href = '../../Cliente/tela01 - cliente/index.html';
+                    window.location.href = '../../Cliente/tela03_form/index.html';
                 }, 2500); // Reduzido para 2.5s para melhor UX
                 
             } catch (error) {

@@ -36,11 +36,23 @@ const servicoPayload = {
 
   
   //Envia para o banco
-    const api = ApiService.getInstancia();
-    console.log(typeof servico.idServico );
-    api.put(`http://localhost:8080/servico/${servico.idServico}`, servicoPayload, function (resposta) {
-  console.log("Atualizado com PUT:", resposta);
+   api.put(`http://localhost:8080/servico/${servico.idServico}`, servicoPayload, function (resposta) {
+  // Verifica se deu certo
+  if (resposta.status >= 200 && resposta.status < 300) {
+    notificacao("Serviço aceito, entraremos em contato. Redirecionando para inicial", "#120fc9ff");
+    console.log("Atualizado com PUT:", resposta);
+    // Aqui o user é enviado de volta a tela inicial
+      window.location.href = "../tela01 - profissional/index.html";
+  } else {
+    console.error("Erro ao atualizar:", resposta);
+  }
 });
+
+function fazerAlgo() {
+  console.log("Requisição deu certo, executando ação!");
+  // colocar o que você quiser aqui
+}
+
 
   //
 
