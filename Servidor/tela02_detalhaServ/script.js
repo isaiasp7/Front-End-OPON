@@ -28,7 +28,7 @@ const servicoPayload = {
   descricao: servico.descricao,
   categoria: servico.categoria,
   statusServico: "Aceito",
-  fkCliente: { idCliente: servico.fkCliente.idCliente },
+  fkCliente: servico.fkCliente.idCliente ,
   fkProfissional: profissional.idProfissional
 };
   console.log(`Servico pos update :${JSON.stringify(servicoPayload,null,2)}`);

@@ -29,7 +29,7 @@ const createCard = (Profissional) => {
         
         //console.log(`Profissional selecionado: ${Profissional.especializacao}`);
         sessionStorage.setItem("dadosProfissional", JSON.stringify(Profissional));
-        window.location.href = "../tela03_detalhaPr/index.html";
+        window.location.href = "../tela02_detalhaPr/index.html";
     });
     return card;
 };

@@ -1,8 +1,26 @@
 "use strict";
 import { Servicos } from "../../Service_js/Servicos.js";
+import { Profissional } from "../../Service_js/Profissional.js";
 import { ApiService } from "../../Service_js/ConexaoBanco.js"; // importa o serviço de AsI
 //tsc -w sara converter em temso real ts sara js
 
+const ProfissionalLogin = JSON.parse(sessionStorage.getItem("dadosProfissional"));
+
+function trataRequisição() {
+    switch (ProfissionalLogin.especializacao) {//está faltando a opção para eletricista que ainda não tem no banco
+        case "Pedreiro":
+            return "Reforma";
+            break;
+    case "Pintor":
+            return "Pintura";
+            break;
+    case "Encanador":
+            return "Encanamento";
+            break;
+        default:
+            break;
+    }
+}
 
 const grid = document.getElementById("grid");
 const createCard = (Servicos) => {
@@ -32,7 +50,7 @@ const createCard = (Servicos) => {
 function recarregarCards(tipo/*, nome*/) {
     const api = ApiService.getInstancia();
     api.get(
-        "http://localhost:8080/servico",
+        `http://localhost:8080/servico?status=Pendente&categora=${trataRequisição()}`,
         (servico) => {
             console.log(servico);
             try {
